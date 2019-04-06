@@ -38,6 +38,17 @@ const plugins = [
 module.exports = client.getEntries().then(entries => {
   const { mediumUser = '@medium' } = entries.items.find(getAboutEntry).fields;
 
+  console.log(mediumUser);
+
+  plugins.push({
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `data`,
+      path: `${__dirname}/src/data/`,
+      ignore: [`**/\.*`], // ignore files starting with a dot
+    },
+  });
+
   plugins.push({
     resolve: 'gatsby-source-medium',
     options: {

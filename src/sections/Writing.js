@@ -56,7 +56,7 @@ const Post = ({ title, text, image, url, date, time }) => (
     </EllipsisHeading>
     {image && <CoverImage src={image} height="200px" alt={title} />}
     <Text m={3}>{text}</Text>
-    <ImageSubtitle bg="primaryLight" color="white" x="right" y="bottom" round>
+    <ImageSubtitle bg="primaryDark" color="white" x="right" y="bottom" round>
       {`${date} - ${Math.ceil(time)} min`}
     </ImageSubtitle>
   </Card>
@@ -102,12 +102,7 @@ const Writing = () => (
   <StaticQuery
     query={graphql`
       query MediumPostQuery {
-        isMediumUserDefine: __type(
-          name: "contentfulAboutMediumUserQueryString_2"
-        ) {
-          name
-        }
-        allMediumPost(limit: 6, sort: { fields: createdAt, order: DESC }) {
+        allMediumPost(limit: 8, sort: { fields: createdAt, order: DESC }) {
           edges {
             node {
               id
@@ -129,21 +124,19 @@ const Writing = () => (
         }
       }
     `}
-    render={({ allMediumPost, isMediumUserDefine }) => {
+    render={({ allMediumPost }) => {
       const posts = edgeToArray(allMediumPost).map(parsePost);
       return (
-        isMediumUserDefine && (
-          <Section.Container id="writing" Background={Background}>
-            <Section.Header name="Writing" icon="✍️" label="writing" />
-            <CardContainer minWidth="300px">
-              {posts.map(p => (
-                <Fade bottom>
-                  <Post key={p.id} {...p} />
-                </Fade>
-              ))}
-            </CardContainer>
-          </Section.Container>
-        )
+        <Section.Container id="articles" Background={Background}>
+          <Section.Header name="Articles" icon="✍️" label="Articles" />
+          <CardContainer minWidth="300px">
+            {posts.map(p => (
+              <Fade bottom>
+                <Post key={p.id} {...p} />
+              </Fade>
+            ))}
+          </CardContainer>
+        </Section.Container>
       );
     }}
   />

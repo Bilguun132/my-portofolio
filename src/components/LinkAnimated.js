@@ -27,7 +27,6 @@ const LinkAnimated = styled.span`
 
   &:hover:after {
     left: 0;
-    right: auto;
     width: 100%;
   }
 `;

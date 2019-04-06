@@ -69,7 +69,8 @@ const TextContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  margin: auto;
+  margin: auto
+  height: ${CARD_HEIGHT};
   width: ${CARD_HEIGHT};
 
   ${MEDIA_QUERY_SMALL} {
@@ -133,23 +134,28 @@ const Project = ({
               float: 'right',
             }}
           >
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="Check repository"
-                fontAwesomeIcon="github"
-                url={repositoryUrl}
-              />
-            </Box>
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="See project"
-                fontAwesomeIcon="globe"
-                url={projectUrl}
-              />
-            </Box>
+            {' '}
+            {repositoryUrl !== 'none' && (
+              <Box mx={1} fontSize={5}>
+                <SocialLink
+                  name="Check repository"
+                  fontAwesomeIcon="github"
+                  url={repositoryUrl}
+                />
+              </Box>
+            )}
+            {projectUrl !== 'none' && (
+              <Box mx={1} fontSize={5}>
+                <SocialLink
+                  name="See project"
+                  fontAwesomeIcon="globe"
+                  url={projectUrl}
+                />
+              </Box>
+            )}
           </Flex>
           <ImageSubtitle
-            bg="primaryLight"
+            bg="primaryDark"
             color="white"
             y="bottom"
             x="right"

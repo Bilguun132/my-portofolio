@@ -40,7 +40,7 @@ const Background = () => (
 );
 
 const LandingPage = () => (
-  <Section.Container id="home" Background={Background}>
+  <Section.Container id="home" >
     <StaticQuery
       query={graphql`
         query SiteTitleQuery {
@@ -78,7 +78,7 @@ const LandingPage = () => (
               mb={[3, 5]}
               textAlign="center"
             >
-              <TextLoop>
+              <TextLoop interval='1500'>
                 {roles.map(text => (
                   <Text width={[300, 500]} key={text}>
                     {text}
