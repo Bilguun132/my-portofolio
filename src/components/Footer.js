@@ -29,7 +29,7 @@ const RenponsiveLogo = styled.img`
 
 const Logo = ({ url, logo, alt = '' }) => (
   <Box>
-    <a href={url} rel="noopener noreferrer" target="_blank">
+    <a href={url} rel="noopener noreferrer" target="_blank" rel="noopener">
       <RenponsiveLogo src={logo} alt={alt} />
     </a>
   </Box>
@@ -64,9 +64,7 @@ const Footer = () => (
           alt="Powered by Contentful"
         />
         <Text m={2} fontSize={4}>
-          <span role="img" aria-label="heart">
-            ❤️
-          </span>
+
         </Text>
         <Logo
           url="https://www.gatsbyjs.org/"

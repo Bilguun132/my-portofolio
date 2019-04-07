@@ -18,9 +18,9 @@ const HeaderContainer = styled(Headroom)`
     background: ${props => props.theme.colors.primaryDark};
   }
 
-  .headroom--unfixed {
-    background: ${props => props.theme.colors.primaryDark};
-  }
+  // .headroom--unfixed {
+  //   background: ${props => props.theme.colors.primaryDark};
+  // }
 
   position: absolute;
   width: 100%;

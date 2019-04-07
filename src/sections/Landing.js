@@ -12,13 +12,13 @@ const Background = () => (
   <div>
     <Triangle
       color="backgroundDark"
-      height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
+      height={['35vh', '65vh']}
+      width={['95vw', '45vw']}
     />
 
     <Triangle
       color="secondary"
-      height={['38vh', '80vh']}
+      height={['20vh', '50vh']}
       width={['50vw', '35vw']}
     />
 
@@ -40,7 +40,7 @@ const Background = () => (
 );
 
 const LandingPage = () => (
-  <Section.Container id="home" >
+  <Section.Container id="home" Background={Background}>
     <StaticQuery
       query={graphql`
         query SiteTitleQuery {
@@ -78,7 +78,7 @@ const LandingPage = () => (
               mb={[3, 5]}
               textAlign="center"
             >
-              <TextLoop interval='1500'>
+              <TextLoop interval="1500">
                 {roles.map(text => (
                   <Text width={[300, 500]} key={text}>
                     {text}
